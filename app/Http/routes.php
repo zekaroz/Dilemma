@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/questions', 'QuestionsController@index');
+
+Route::get('/questions/{question}/edit', 'QuestionsController@edit');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
