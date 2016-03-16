@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Question;
+use App\QuestionOption;
 
 class QuestionsController extends Controller
 {
@@ -27,7 +28,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('questions\create');
     }
 
     /**
@@ -38,7 +39,16 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $question = new Question([
+            'theme'=>$request->get('theme'),
+            'question'=>$request->get('question'),
+          ]);
+
+          // this automatically applies the user id for
+          //the relations ship
+          $question->save();
+
+          return redirect('/questions/'.$question->id.'/edit');
     }
 
     /**
@@ -49,7 +59,6 @@ class QuestionsController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -60,7 +69,11 @@ class QuestionsController extends Controller
      */
     public function edit($question)
     {
-          return view('questions.edit')->with(compact('question'));
+          $question_options = $question->options;
+
+          return view('questions.edit')
+                  ->with(compact('question'))
+                  ->with(compact('question_options'));
     }
 
     /**
@@ -72,7 +85,14 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $question->update([
+                'theme'=>$request->get('theme'),
+                'question'=>$request->get('question')
+            ]);
+
+         return redirect('questions');
     }
 
     /**

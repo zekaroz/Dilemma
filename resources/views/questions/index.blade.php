@@ -15,15 +15,24 @@
 
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">All questions</h3>
+    <div class="col-lg-11">
+       <h3 class="box-title">
+             All questions
+       </h3>
+    </div>
+    <div class="col-lg-1">
+       <div style="float:right;">
+         <a name="add" href="questions/create" class="btn btn-block btn-primary">Add Question</a>
+       </div>
+    </div>
   </div><!-- /.box-header -->
   <div class="box-body">
     <table class="table table-striped search-table">
         <thead>
         <th> Id </th>
-        <th> Name </th>
-        <th> Code </th>
-        <th> Created at </th>
+        <th> Theme </th>
+        <th> Description </th>
+        <th> Realese Date </th>
         <th></th>
         </thead>
     <tbody>

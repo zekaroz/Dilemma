@@ -1,10 +1,10 @@
 <div class='form-group'>
-        {!! Form::label('Name' ) !!}
+        {!! Form::label('Theme' ) !!}
         {!! Form::text('theme' , null , ['class' => 'form-control']) !!}
     </div>
     <div class='form-group'>
-        {!! Form::label('Code' ) !!}
-        {!! Form::textarea('question' , null , ['class' => 'form-control']) !!}
+        {!! Form::label('Question Description' ) !!}
+        {!! Form::textarea('question' , null , ['class' => 'form-control', 'rows' => '3']) !!}
     </div>
     <div class='form-group'>
         {!! Form::submit($submitButtonText ,  ['class' => 'btn btn-primary']) !!}

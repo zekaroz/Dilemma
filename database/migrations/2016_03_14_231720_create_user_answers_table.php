@@ -17,6 +17,7 @@ class CreateUserAnswersTable extends Migration
             $table->integer('question_id')->unsigned();
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('question_option_id')->unsigned();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

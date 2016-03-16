@@ -27,7 +27,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
         <div class="wrapper">
             @include('layout.header')
             @include('layout.sidebar')
