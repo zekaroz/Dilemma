@@ -19,6 +19,12 @@ Route::get('/questions/{question}/edit', 'QuestionsController@edit');
 
 Route::resource('questions', 'QuestionsController');
 
+// to add new Options to the question
+route::post('/question_option/{question}/add', 'QuestionsController@addOption');
+
+route::post('/question_option/{question_option}/remove', 'QuestionsController@removeOption');
+
+Route::patch('/question_option/{question_option}/save', 'QuestionsController@saveQuestionOption');
 /*
 |--------------------------------------------------------------------------
 | Application Routes

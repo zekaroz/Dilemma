@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>DiLemma</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -28,6 +28,16 @@
     <![endif]-->
   </head>
   <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+        <!-- jQuery 2.1.4 -->
+        <script src="{{ asset("plugins/jQuery/jQuery-2.1.4.min.js")}}"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="{{ asset("bootstrap/js/bootstrap.min.js")}}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js" charset="utf-8"></script>
+
+        <script src="{{ asset("js/JQ.js")  }}" charset="utf-8"></script>
+
+
         <div class="wrapper">
             @include('layout.header')
             @include('layout.sidebar')
@@ -45,19 +55,20 @@
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.0
                 </div>
-                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">JQ Studio</a>.</strong> All rights reserved.
             </footer>
         </div><!-- ./wrapper -->
 
+        @include('layout.loadingSpinner')
 
-        <!-- jQuery 2.1.4 -->
-        <script src="{{ asset("plugins/jQuery/jQuery-2.1.4.min.js")}}"></script>
-        <!-- Bootstrap 3.3.5 -->
-        <script src="{{ asset("bootstrap/js/bootstrap.min.js")}}"></script>
-        <!-- FastClick -->
         <script src="{{ asset("plugins/fastclick/fastclick.min.js")}}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset("dist/js/app.min.js")}}"></script>
+
+        <script src="{{ asset("plugins/input-mask/jquery.inputmask.js")}}"></script>
+        <script src="{{ asset("plugins/input-mask/jquery.inputmask.date.extensions.js")}}"></script>
+        <script src="{{ asset("plugins/input-mask/jquery.inputmask.extensions.js")}}"></script>
+
         <!-- Sparkline -->
         <script src="{{ asset("plugins/sparkline/jquery.sparkline.min.js")}}"></script>
         <!-- jvectormap -->

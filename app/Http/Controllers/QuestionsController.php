@@ -42,6 +42,7 @@ class QuestionsController extends Controller
           $question = new Question([
             'theme'=>$request->get('theme'),
             'question'=>$request->get('question'),
+            'release_date' => $request->get('release_date')
           ]);
 
           // this automatically applies the user id for
@@ -89,7 +90,8 @@ class QuestionsController extends Controller
 
         $question->update([
                 'theme'=>$request->get('theme'),
-                'question'=>$request->get('question')
+                'question'=>$request->get('question'),
+                'release_date' => $request->get('release_date')
             ]);
 
          return redirect('questions');
@@ -104,5 +106,47 @@ class QuestionsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function saveQuestionOption(Request $request, $question_option){
+
+          $question_option->option_text =$request->get('option_text');
+
+          $question_option->save();
+
+          return response()->json(['status' => '200', 'code' => 'OK']);
+    }
+
+    public function addOption($question){
+        $option = new QuestionOption();
+
+        $option->question_id = $question->id;
+
+        $option->save();
+
+        $question_options = $question->options;
+
+        $page = view('questions.questionoptions')
+                  ->with(compact('question_options'))
+                  ->with('question_id', $question->id)->render();
+
+        // to return the view to refresh the list
+        return $page;
+    }
+
+    public function removeOption($question_option){
+
+        $question = Question::findOrFail($question_option->question_id);
+
+        $question_option->delete();
+
+        $question_options = $question->options;
+
+        $page = view('questions.questionoptions')
+                  ->with(compact('question_options'))
+                  ->with('question_id', $question->id)->render();
+
+        // to return the view to refresh the list
+        return $page;
     }
 }
