@@ -26,52 +26,22 @@
        </div>
     </div>
   </div><!-- /.box-header -->
-  <div class="box-body">
-    <table class="table table-striped search-table">
-        <thead>
-        <th> Id </th>
-        <th> Theme </th>
-        <th> Description </th>
-        <th> Realese Date </th>
-        <th></th>
-        </thead>
-    <tbody>
-        @forelse( $questions as $question)
-            <tr>
-                <td>
-
-                       {{ $question->id }}
-                </td>
-                <td>
-                    <a href="questions/{{$question->id}}/edit">
-                       {{ $question->theme}}
-                     </a>
-                </td>
-                <td>
-                   {{ $question->question}}
-                </td>
-                <td>
-                   {{ $question->release_date}}
-                </td>
-                 <td>
-
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="5">
-                    No records to show...
-                </td>
-            </tr>
-        @endforelse
-    </tbody>
-    </table>
+  <div id="questionTable" class="box-body">
+        @include('questions._table')
 
   </div><!-- /.box-body -->
 </div><!-- /.box -->
 
 <script >
 
+function deleteQuestion(question_id){
+  var postData = '_method=DELETE';
+  var refreshSection = $('#questionTable');
+
+  form_post(postData, '/questions/'+ question_id , refreshSection, true);
+
+  return false;
+}
 </script>
 
 @stop

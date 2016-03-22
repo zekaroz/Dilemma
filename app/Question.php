@@ -9,7 +9,9 @@ class Question extends Model
 
       protected $fillable =  [
         'theme',
-        'question'
+        'question',
+        'release_date',
+        'is_open'
           ];
 
       public function options(){

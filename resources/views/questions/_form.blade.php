@@ -16,6 +16,12 @@
         {!! Form::text('release_date' , null , ['class' => 'form-control', 'data-inputmask' => '"alias": "dd/mm/yyyy"', 'data-mask' , 'id'=>'ReleaseDate']) !!}
       </div><!-- /.input group -->
     </div><!-- /.form group -->
+
+    <div class='form-group'>
+        {!! Form::label('is_open' ) !!}
+        {{ Form::checkbox('is_open', 1, null, ['class' => 'field minimal']) }}
+    </div>
+
     <div class='form-group'>
         {!! Form::submit($submitButtonText ,  ['class' => 'btn btn-primary']) !!}
 

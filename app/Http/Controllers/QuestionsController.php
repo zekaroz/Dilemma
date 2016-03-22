@@ -45,6 +45,8 @@ class QuestionsController extends Controller
             'release_date' => $request->get('release_date')
           ]);
 
+          $question->is_open = $request->get('is_open')? $request->get('is_open') : 0;
+
           // this automatically applies the user id for
           //the relations ship
           $question->save();
@@ -91,10 +93,11 @@ class QuestionsController extends Controller
         $question->update([
                 'theme'=>$request->get('theme'),
                 'question'=>$request->get('question'),
-                'release_date' => $request->get('release_date')
+                'release_date' => $request->get('release_date'),
+                'is_open' => $request->get('is_open')
             ]);
 
-         return redirect('questions');
+        return redirect('questions');
     }
 
     /**
@@ -103,9 +106,18 @@ class QuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($question)
     {
-        //
+          $question->delete();
+
+          $questions = Question::all();
+
+          $page = view('questions._table')
+                    ->with(compact('questions'))
+                    ->render();
+
+          // to return the view to refresh the list
+          return $page;
     }
 
     public function saveQuestionOption(Request $request, $question_option){

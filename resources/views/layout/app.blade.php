@@ -20,6 +20,9 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset("dist/css/skins/_all-skins.min.css")}}">
 
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="{{ asset("plugins/iCheck/all.css")}}">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,6 +39,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js" charset="utf-8"></script>
 
         <script src="{{ asset("js/JQ.js")  }}" charset="utf-8"></script>
+
+        <script src="{{ asset("plugins/iCheck/icheck.min.js")}}"></script>
 
 
         <div class="wrapper">
@@ -60,6 +65,17 @@
         </div><!-- ./wrapper -->
 
         @include('layout.loadingSpinner')
+
+        <script type="text/javascript">
+            $(function () {
+              //iCheck for checkbox and radio inputs
+              $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+              });
+
+            });
+        </script>
 
         <script src="{{ asset("plugins/fastclick/fastclick.min.js")}}"></script>
         <!-- AdminLTE App -->

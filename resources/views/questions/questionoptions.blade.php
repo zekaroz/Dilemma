@@ -1,4 +1,4 @@
-  @if( isset( $question_options ) )
+  @if( count( $question_options ) > 0 )
       <div class="box">
          <div class="box-header">
             <div class="col-lg-11">
@@ -45,20 +45,22 @@
                   </div>
 
              @empty
+
+
              @endforelse
           </div>
       </div>
 
   @else
-    <div class="box">
-       <div class="box-body">
-            <h4>No options yet! Go ahead and Create an Option!</h4>
-            <p>when you create options then the question can be used to lauch a dilemma online. Go Ahead and create one.</p>
-            <div class="">
-                <button id="newOpt" onclick="addOption();" class="btn btn-block btn-primary">Create Option</button>
-            </div>
-        </div>
-    </div>
+      <div class="box">
+         <div class="box-body">
+              <h4>No options yet! Go ahead and Create an Option!</h4>
+              <p>when you create options then the question can be used to lauch a dilemma online. Go Ahead and create one.</p>
+              <div class="">
+                  <button id="newOpt" onclick="addOption();" class="btn btn-block btn-primary">Create Option</button>
+              </div>
+          </div>
+      </div>
   @endif
 
 

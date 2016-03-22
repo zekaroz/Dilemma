@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+* This ones get the route model binding
+*/
 Route::get('/questions/{question}/edit', 'QuestionsController@edit');
+Route::delete('/questions/{question}', 'QuestionsController@destroy');
 
 Route::resource('questions', 'QuestionsController');
+
 
 // to add new Options to the question
 route::post('/question_option/{question}/add', 'QuestionsController@addOption');
