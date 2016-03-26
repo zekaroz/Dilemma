@@ -19,3 +19,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Question::class, function (Faker\Generator $faker) {
+    return [
+        'theme' => $faker->word,
+        'question' => $faker->sentence,
+        'is_open' => false,
+        'release_date' =>  $faker->dateTimeThisYear($max = 'now'),
+        'key' => Hash::make(str_random(10))
+    ];
+});
