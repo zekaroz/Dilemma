@@ -30,6 +30,10 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-          $("#ReleaseDate").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
+          $("#ReleaseDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
+          });
     });
 </script>
