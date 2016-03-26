@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->date('release_date');
             $table->boolean('is_open');
+            $table->text('key');
             $table->softDeletes();
             $table->timestamps();
         });

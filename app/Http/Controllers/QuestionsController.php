@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Question;
 use App\QuestionOption;
+use Carbon\Carbon;
+use Hash;
 
 class QuestionsController extends Controller
 {
@@ -46,6 +48,9 @@ class QuestionsController extends Controller
           ]);
 
           $question->is_open = $request->get('is_open')? $request->get('is_open') : 0;
+
+          // this sets a allways new string
+          $question->key = Hash::make(Carbon::Now()->toRfc2822String());
 
           // this automatically applies the user id for
           //the relations ship
