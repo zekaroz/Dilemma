@@ -20,7 +20,7 @@ class QuestionsController extends Controller
     public function index()
     {
         $questions = Question::all();
-        return view('questions\index')->with(compact('questions'));
+        return view('questions.index')->with(compact('questions'));
     }
 
     /**
@@ -30,7 +30,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        return view('questions\create');
+        return view('questions.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class QuestionsController extends Controller
           //the relations ship
           $question->save();
 
-          return redirect('/questions/'.$question->id.'/edit');
+          return redirect('questions/'.$question->id.'/edit');
     }
 
     /**
