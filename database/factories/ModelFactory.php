@@ -26,6 +26,7 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
         'theme' => $faker->word,
         'question' => $faker->sentence,
         'is_open' => false,
-        'release_date' =>  $faker->dateTimeThisYear($max = 'now') 
+        'release_date' =>  $faker->dateTimeThisYear($max = 'now'),
+        'key' => Hash::make(str_random(10))
     ];
 });
