@@ -17,10 +17,23 @@
           <!-- search form -->
           <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <input type="text" id="menuSearch" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
+
+            <script type="text/javascript">
+                $("#menuSearch").on('input', function() {
+                  var filter = $(this).val();
+                  $(".sidebar-menu > li").each(function(){
+                      if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                          $(this).hide();
+                      } else {
+                          $(this).show();
+                      }
+                  });
+                });
+            </script>
             </div>
           </form>
           <!-- /.search form -->
