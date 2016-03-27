@@ -10,11 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 * This ones get the route model binding
 */
@@ -43,4 +38,10 @@ Route::patch('/question_option/{question_option}/save', 'QuestionsController@sav
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/', 'QuestionsController@index');
 });

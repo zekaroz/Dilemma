@@ -1,5 +1,8 @@
 <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
+@if (Auth::guest())
+
+@else
         <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
@@ -40,5 +43,6 @@
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
           </ul>
         </section>
+@endif
         <!-- /.sidebar -->
       </aside>
