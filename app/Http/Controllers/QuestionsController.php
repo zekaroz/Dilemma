@@ -57,6 +57,8 @@ class QuestionsController extends Controller
           // this sets a allways new string
           $question->key = Hash::make(Carbon::Now()->toRfc2822String());
 
+          $question->key = str_replace('/', '', $question->key );
+
           // this automatically applies the user id for
           //the relations ship
           $question->save();

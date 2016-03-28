@@ -25,11 +25,13 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+
+Route::get('/dilemma/{question_key}', 'OnlineDilemma@getDilemma');  
 
     Route::get('/', 'QuestionsController@index');
 
