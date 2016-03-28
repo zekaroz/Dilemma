@@ -29,9 +29,7 @@
                         </div>
                     </div>
                 </div>
-
            @empty
-
 
            @endforelse
         </div>
@@ -63,11 +61,11 @@
           }
 
           function addOption(){
-              var postData = '';
-              var refreshSection = $('#optionSection');
+            var postData = '';
+            var refreshSection = $('#optionSection');
 
-              form_post(postData, '/question_option/'+ {{  $question_id  }} +'/add' , refreshSection, true);
-              return false;
+            form_post(postData, '/question_option/'+ {{  $question_id  }} +'/add' , refreshSection, true);
+            return false;
           }
 
 </script>
