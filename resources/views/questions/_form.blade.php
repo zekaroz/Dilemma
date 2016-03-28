@@ -22,6 +22,15 @@
         {{ Form::checkbox('is_open', 1, null, ['class' => 'field minimal']) }}
     </div>
 
+    @if(isset($question))
+        <div class='form-group'>
+            {!! Form::label('Key' ) !!}
+            <div>
+                {{ $question->key  }}
+            </div>
+        </div>
+    @endif
+    
     <div class='form-group'>
         {!! Form::submit($submitButtonText ,  ['class' => 'btn btn-primary']) !!}
 
