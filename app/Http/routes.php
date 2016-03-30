@@ -1,29 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-/*
-* This ones get the route model binding
-*/
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
-
 Route::group(['middleware' => ['web']], function () {
 
 });
@@ -31,7 +7,15 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-Route::get('/dilemma/{question_key}', 'OnlineDilemma@getDilemma');  
+    // this ones are for public linking to questions
+    Route::get('/dilemma/{question_key}', 'OnlineDilemma@getDilemma');
+
+    // this ones are for public linking to questions
+    Route::get('/question/{question_key}', 'OnlineDilemma@getPreview');
+
+    Route::get('/dilema_new',function(){
+        return view('public.template_new');
+    });
 
     Route::get('/', 'QuestionsController@index');
 
