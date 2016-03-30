@@ -49,10 +49,8 @@
 
 
         <div class="wrapper">
-            @include('layout.header')
-            @include('layout.dilemmaSideBar')
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="margin-left:0px !important;">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                       @yield('title')
@@ -61,7 +59,7 @@
                     @yield('content')
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
-            <footer class="main-footer">
+            <footer class="main-footer" style="margin-left:0px !important;">
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.0
                 </div>

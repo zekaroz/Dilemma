@@ -24,13 +24,13 @@
 
     @if(isset($question))
         <div class='form-group'>
-            {!! Form::label('Key' ) !!}
+            {!! Form::label('Preview' ) !!}
             <div>
-                {{ $question->key  }}
+              <a href="{{ url('/question/'.$question->key) }}">   Preview Question Link</a>
             </div>
         </div>
     @endif
-    
+
     <div class='form-group'>
         {!! Form::submit($submitButtonText ,  ['class' => 'btn btn-primary']) !!}
 
