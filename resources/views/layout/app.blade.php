@@ -24,10 +24,10 @@
     <!-- iCheck for checkboxes and radio inputs -->
     <link rel="stylesheet" href="{{ asset("plugins/iCheck/all.css")}}">
 
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-
+    <link rel="stylesheet" href="{{ asset("css/alertify.core.css")}}">
+      <link rel="stylesheet" href="{{ asset("css/alertify.default.css")}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,6 +44,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js" charset="utf-8"></script>
 
         <script src="{{ asset("js/JQ.js")  }}" charset="utf-8"></script>
+        <script src="{{ asset("js/alertify.js")  }}" charset="utf-8"></script>
 
         <script src="{{ asset("plugins/iCheck/icheck.min.js")}}"></script>
 
@@ -51,12 +52,14 @@
         <div class="wrapper">
             @include('layout.header')
             @include('layout.dilemmaSideBar')
+
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                       @yield('title')
                 </section>
+          <!--    {!! Notification::showAll() !!} -->
                 <section class="content">
                     @yield('content')
                 </section><!-- /.content -->
@@ -78,8 +81,6 @@
                 checkboxClass: 'icheckbox_minimal-blue',
                 radioClass: 'iradio_minimal-blue'
               });
-
-
             });
         </script>
 
@@ -87,7 +88,11 @@
             $.ajaxSetup({
                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
             });
+
+            @include('layout.messages')
         </script>
+
+
 
         <script src="{{ asset("plugins/fastclick/fastclick.min.js")}}"></script>
         <!-- AdminLTE App -->

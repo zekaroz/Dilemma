@@ -9,6 +9,7 @@ use App\Question;
 use App\QuestionOption;
 use Carbon\Carbon;
 use Hash;
+use Notification;
 
 class QuestionsController extends Controller
 {
@@ -63,6 +64,8 @@ class QuestionsController extends Controller
           //the relations ship
           $question->save();
 
+          flash()->success('Question has been saved! Well Done!');
+
           return redirect('questions/'.$question->id.'/edit');
     }
 
@@ -109,6 +112,8 @@ class QuestionsController extends Controller
                 'is_open' => $request->get('is_open')
             ]);
 
+        flash()->success('Question has been updated! Awesome!');
+
         return redirect('questions');
     }
 
@@ -154,6 +159,8 @@ class QuestionsController extends Controller
                   ->with(compact('question_options'))
                   ->with('question_id', $question->id)->render();
 
+        flash()->success('An option has been Added.');
+
         // to return the view to refresh the list
         return $page;
     }
@@ -170,6 +177,7 @@ class QuestionsController extends Controller
                   ->with(compact('question_options'))
                   ->with('question_id', $question->id)->render();
 
+        flash()->success('An option has been removed.');
         // to return the view to refresh the list
         return $page;
     }
