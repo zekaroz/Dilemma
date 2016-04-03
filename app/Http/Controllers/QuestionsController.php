@@ -159,7 +159,6 @@ class QuestionsController extends Controller
                   ->with(compact('question_options'))
                   ->with('question_id', $question->id)->render();
 
-        flash()->success('An option has been Added.');
 
         // to return the view to refresh the list
         return $page;
@@ -177,7 +176,6 @@ class QuestionsController extends Controller
                   ->with(compact('question_options'))
                   ->with('question_id', $question->id)->render();
 
-        flash()->success('An option has been removed.');
         // to return the view to refresh the list
         return $page;
     }

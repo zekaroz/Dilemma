@@ -3,7 +3,7 @@
 @section('title')
 <h1>
   Questions
-  <small>advanced tables</small>
+  <small>This is the place to see all the questions</small>
 </h1>
 <ol class="breadcrumb">
   <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,9 +16,6 @@
 <div class="box">
   <div class="box-header">
     <div class="col-lg-11">
-       <h3 class="box-title">
-             All questions
-       </h3>
     </div>
     <div class="col-lg-1">
        <div style="float:right;">
@@ -31,6 +28,8 @@
 
   </div><!-- /.box-body -->
 </div><!-- /.box -->
+
+
 
 <script >
 
