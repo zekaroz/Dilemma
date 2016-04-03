@@ -40,6 +40,7 @@ function deleteQuestion(question_id){
 
   form_post(postData, '/questions/'+ question_id , refreshSection, true);
 
+  feedbackSuccess('Question is deleted now, gone!');
   return false;
 }
 </script>

@@ -75,7 +75,7 @@
               form_post(postData, '/question_option/'+ form.attr('data-id') +'/save' , null, false);
 
               successInputEffect($(inputElement));
-
+              feedbackSuccess('Option Saved!');
               return false;
             }
 
@@ -84,6 +84,8 @@
               var refreshSection = $('#optionSection');
 
               form_post(postData, '/question_option/'+ option_id  +'/remove' , refreshSection, true);
+
+              feedbackSuccess('Option removed!');
               return false;
             }
 
@@ -92,6 +94,8 @@
                 var refreshSection = $('#optionSection');
 
                 form_post(postData, '/question_option/'+ {{  $question_id  }} +'/add' , refreshSection, true);
+
+                feedbackSuccess('Option added!');
                 return false;
             }
 

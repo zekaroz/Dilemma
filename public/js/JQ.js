@@ -73,3 +73,22 @@
            });
            return false;
     }
+
+    // interface to feedback messages
+    function feedbackSuccess(message){
+
+        if(!message)
+          return;
+        // this checks if alertify is here
+        if(alertify){
+            alertify.success(message);
+        }
+    }
+
+    // interface to feedback messages
+    function feedbackError(message){
+        // this checks if alertify is here
+        if(alertify){
+            alertify.error(message);
+        }
+    }
