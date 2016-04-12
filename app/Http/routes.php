@@ -34,4 +34,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::patch('/question_option/{question_option}/save', 'QuestionsController@saveQuestionOption');
 
     Route::get('/users', 'UsersController@index');
+
+    Route::get('/vue', function(){
+        return view('exp.index');
+    });
 });
